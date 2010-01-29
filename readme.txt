@@ -33,7 +33,7 @@ Export OBJ from Sketch Up or other 3D app ( make sure you have a terrain like me
 
 ./clean.py exportedfile.obj  > new-clean.obj 
 
-Check the file and see if you see things like "v X Y Z" with X and Z values being positive. Also notice that if you have rotated your base grid, then you should expect lots of repeteaded values in the X and Y. This is fine and expected and that is the only way things will work. The python will *sort* arrays to get the matrix in order and extract just the Y values for the points. 
+Check the file and see if you see things like "v X Y Z" with X and Z values being positive. Also notice that if you have NOT rotated your initial grid, which is fine and expected, then you should expect lots of repeteaded values in the X and Y. This is fine and expected and that is the only way things will work. The python will *sort* arrays to get the matrix in order and extract just the Y values for the points. 
 
 Parse 
 
