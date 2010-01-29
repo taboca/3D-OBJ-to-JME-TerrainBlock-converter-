@@ -63,5 +63,5 @@ Copy the file.txt as an array of Float like this:
 				 
            };
 
-If you want to make sure the size of the array you can change the parse.py code and let it pring the II and JJ values. JME terrainBlock will only work if it is equal numbers of cols and rows. Good luck or write to me mgalli @ mgalli dot com
+If you want to make sure the size of the array you can change the parse.py code and let it print the II and JJ values. JME terrainBlock will only work if it is equal numbers of cols and rows. Good luck or write to me mgalli @ mgalli dot com
 
