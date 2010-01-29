@@ -1,14 +1,43 @@
+Warning - how to use
+===
+
+If you are designing, with your application 3D, make sure you are designing a terrain like object. What I mean by that is that you need to make sure you are just lifiting faces in the Y ( to sky or down the ground ) axis. For example, you are not making for example a sphere. You just want to get a grid of faces and lift vertexes in the Y axis. If you do that this may work. Other thing.. do NOT rotate the base of the grid of faces. For example, when you start you make sure you start with a GRID like this:
+
+
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+o o o o o o o o o o 
+ 
++
+/\ x
+|
+---> Z +  
+
+* X rows by X cols view from top.
+* Make sure this sits under the positive side of X and Z axis. You dont want to have negative numbers in X or Z
+* Fine to have positive or negative numbers in the Y ( mountains or lakes :) 
+* Export OBJ file 
+
+Proceed: 
+=======
+
+
 Export OBJ from Sketch Up or other 3D app ( make sure you have a terrain like mesh object ) 
 
-cp ~marciogalli/Desktop/baseterrain.obj  .
+./clean.py exportedfile.obj  > new-clean.obj 
 
-Clean 
-
-187-26-233-41:obj_to_terrain marciogalli$ ./clean.py baseterrain.obj  > baseterrain-clean.obj 
+Check the file and see if you see things like "v X Y Z" with X and Z values being positive. Also notice that if you have rotated your base grid, then you should expect lots of repeteaded values in the X and Y. This is fine and expected and that is the only way things will work. The python will *sort* arrays to get the matrix in order and extract just the Y values for the points. 
 
 Parse 
 
-187-26-233-41:obj_to_terrain marciogalli$ ./parse.py baseterrain-clean.obj > file.txt
+./parse.py new-clean.obj > file.txt
 
 Copy the file.txt as an array of Float like this: 
 
@@ -34,5 +63,5 @@ Copy the file.txt as an array of Float like this:
 				 
            };
 
-If you want to make sure the size of the array you can change the parse.py code and let it pring the II and JJ values
+If you want to make sure the size of the array you can change the parse.py code and let it pring the II and JJ values. JME terrainBlock will only work if it is equal numbers of cols and rows. Good luck or write to me mgalli @ mgalli dot com
 
